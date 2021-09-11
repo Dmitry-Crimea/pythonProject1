@@ -105,9 +105,9 @@
 # выведите результат. Выполните вызов методов и также покажите результат.
 
 class Car:
-    speed: int
-    color: str
-    name: str
+    speed = int
+    color = str
+    name = str
     is_police = bool
 
     def __init__(self, speed, color, name, is_police):
@@ -117,20 +117,22 @@ class Car:
         self.is_police = is_police
 
     def go(self):
-        print(f"Машина {self.name}, {self.color} цвета поехала со скоростью {self.speed}")
+        return f"Машина {self.name}, {self.color} цвета поехала"
 
     def stop(self):
-        print(f"Машина {self.name}, {self.color} остановилась")
+        return f"Машина {self.name}, {self.color} остановилась"
 
-    def turn(self):
-        pass
+    def turn(self, direction):
+        return f"Машина повернула {direction}"
 
     def show_speed(self):
-        pass
+        return f"Скорость машины {self.name} - {self.speed} "
 
 
 class TownCar(Car):
-    pass
+    def car_speed(self):
+        if self.speed > 60:
+            return f"Вы ревысили скорость!"
 
 
 class SportCar(Car):
@@ -138,12 +140,20 @@ class SportCar(Car):
 
 
 class WorkCar(Car):
-    pass
+    def car_speed(self):
+        if self.speed > 40:
+            return f"Вы ревысили скорость!"
 
 
 class PoliceCar(Car):
     pass
 
 
-user_car = Car(60, "Red", "Porsche", False)
-user_car.go()
+print("Список автомобилей: town_car, sport_car, work_car, police_car")
+
+# user_car = input("Введите автомобиль из списка: ")
+# user_speed = input("Введите скорость: ")
+# user_color = input("Введите цвет автомобиля: ")
+# user_name = input("Введите марку автомобиля: ")
+
+print(user_car.go(), user_speed.show_speed(), user_car.turn("right"))
