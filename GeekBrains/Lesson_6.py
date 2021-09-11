@@ -12,13 +12,13 @@ from time import sleep
 
 
 class TrafficLight:
-    __color = ""
+    __color = True
 
     def running(self):
         while True:
             self.__color = "Red"
             print(f'{self.__color}')
-            sleep(2)
+            sleep(7)
             self.__color = "Yellow"
             print(f'{self.__color}')
             sleep(3)
