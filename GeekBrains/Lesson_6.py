@@ -7,7 +7,7 @@
 # желтый, зеленый). Проверить работу примера, создав экземпляр и вызвав описанный метод.
 # Задачу можно усложнить, реализовав проверку порядка режимов, и при его нарушении выводить соответствующее сообщение
 # и завершать скрипт.
-#
+
 from time import sleep
 
 
@@ -40,8 +40,8 @@ traffic_light.running()
 # Например: 20м*5000м*25кг*5см = 12500 т
 
 class Road:
-    __length = int
-    __width = int
+    _length = int
+    _width = int
 
     def __init__(self, __length, __width):
         self.__length = __length
@@ -92,3 +92,48 @@ john = Position("John", "Doe", "Manager", {"wage": 500, "bonus": 300})
 
 john.get_full_name()
 john.get_total_income()
+
+
+########################################################################################################################
+
+# 4.Реализуйте базовый класс Car. У данного класса должны быть следующие атрибуты: speed, color, name, is_police
+# (булево). А также методы: go, stop, turn(direction), которые должны сообщать, что машина поехала, остановилась,
+# повернула (куда).Опишите несколько дочерних классов: TownCar, SportCar, WorkCar, PoliceCar. Добавьте в базовый
+# класс метод show_speed, который должен показывать текущую скорость автомобиля. Для классов TownCar и WorkCar
+# переопределите метод show_speed. При значении скорости свыше 60 (TownCar) и 40 (WorkCar) должно выводиться сообщение
+# о превышении скорости. Создайте экземпляры классов, передайте значения атрибутов. Выполните доступ к атрибутам,
+# выведите результат. Выполните вызов методов и также покажите результат.
+
+class Car:
+    speed: int
+    color: str
+    name: str
+    is_police = bool
+
+    def go(self):
+        pass
+
+    def stop(self):
+        pass
+
+    def turn(self):
+        pass
+
+    def show_speed(self):
+        pass
+
+
+class TownCar(Car):
+    pass
+
+
+class SportCar(Car):
+    pass
+
+
+class WorkCar(Car):
+    pass
+
+
+class PoliceCar(Car):
+    pass
