@@ -67,15 +67,28 @@ result.calculated()
 # атрибутов, вызвать методы экземпляров).
 
 class Worker:
-    _name = str
-    _surname = str
-    _position = int
-    __income = dict
+    name = str
+    surname = str
+    position = str
+    _income = dict
+
+    def __init__(self, name, surname, position, income):
+        self.name = name
+        self.surname = surname
+        self.position = position
+        self._income = income
 
 
 class Position(Worker):
-    _name = name
 
-    def get_full_name(self, name, surname):
-        return (self.)
+    def get_full_name(self):
+        print(f"Имя сотрудника: {self.name, self.surname} \n Занимаемая должность: {self.position}")
 
+    def get_total_income(self):
+        print(f"Средний доход {self.name} {self.surname} равен {sum(self._income.values())} р.")
+
+
+john = Position("John", "Doe", "Manager", {"wage": 500, "bonus": 300})
+
+john.get_full_name()
+john.get_total_income()
