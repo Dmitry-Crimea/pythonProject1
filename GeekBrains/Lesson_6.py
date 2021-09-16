@@ -7,7 +7,7 @@
 # желтый, зеленый). Проверить работу примера, создав экземпляр и вызвав описанный метод.
 # Задачу можно усложнить, реализовав проверку порядка режимов, и при его нарушении выводить соответствующее сообщение
 # и завершать скрипт.
-
+#
 from time import sleep
 
 
@@ -105,19 +105,14 @@ john.get_total_income()
 # выведите результат. Выполните вызов методов и также покажите результат.
 
 class Car:
-    speed = int
-    color = str
-    name = str
-    is_police = bool
-
-    def __init__(self, speed, color, name, is_police):
+    def __init__(self, speed=int, color=str, name=str, is_police=bool):
         self.speed = speed
         self.color = color
         self.name = name
         self.is_police = is_police
 
     def go(self):
-        return f"Машина {self.name}, {self.color} цвета поехала"
+        return f"Машина {self.name}, {self.color} цвета, машина поехала"
 
     def stop(self):
         return f"Машина {self.name}, {self.color} остановилась"
@@ -149,11 +144,41 @@ class PoliceCar(Car):
     pass
 
 
-print("Список автомобилей: town_car, sport_car, work_car, police_car")
+work_car = WorkCar(60, "Red", "Porsche", False)
+print(work_car.go())
 
-# user_car = input("Введите автомобиль из списка: ")
-# user_speed = input("Введите скорость: ")
-# user_color = input("Введите цвет автомобиля: ")
-# user_name = input("Введите марку автомобиля: ")
 
-print(user_car.go(), user_speed.show_speed(), user_car.turn("right"))
+########################################################################################################################
+
+# 5. Реализовать класс Stationery (канцелярская принадлежность). Определить в нем атрибут title (название) и метод
+# draw (отрисовка). Метод выводит сообщение “Запуск отрисовки.” Создать три дочерних класса Pen (ручка),
+# Pencil (карандаш), Handle (маркер). В каждом из классов реализовать переопределение метода draw.
+# Для каждого из классов метод должен выводить уникальное сообщение. Создать экземпляры классов и проверить, что выведет
+# описанный метод для каждого экземпляра.
+
+
+class Stationery:
+    def __init__(self, title=str):
+        self.title = title
+
+    def draw(self):
+        return f'Запуск отрисовки'
+
+
+class Pen(Stationery):
+    def pen_draw(self):
+        return f'Запуск отрисовки {self.title}'
+
+
+class Pencil(Stationery):
+    def pencil_draw(self):
+        return f'Запуск отрисовки {self.title}'
+
+
+class Handle(Stationery):
+    def handle_draw(self):
+        return f'Запуск отрисовки {self.title}'
+
+
+pen = Pen("Ручка")
+print(pen.pen_draw())
