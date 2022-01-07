@@ -35,14 +35,10 @@ print(Date.validation(2022,  11,  22))
 
 class DevissonByZerro:
 
-    def __init__(self, param1, param2):
-        self.param1 = param1
-        self.param2 = param2
-
     @staticmethod
-    def _devidebyzerro(param1, param2):
+    def _devidebyzerro(digit_1, digit_2):
         try:
-            return param1 / param2
+            return digit_1 / digit_2
         except ZeroDivisionError:
             return f'DevizionByZerro!!!'
 
@@ -66,5 +62,5 @@ print(DevissonByZerro._devidebyzerro(user_input_1, user_input_2))
 # Класс-исключение должен не позволить пользователю ввести текст (не число) и отобразить соответствующее сообщение.
 # При этом работа скрипта не должна завершаться.
 #
-# class Exception:
-#     pass
+class Exception:
+    pass
