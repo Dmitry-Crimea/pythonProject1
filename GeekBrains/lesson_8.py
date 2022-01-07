@@ -44,10 +44,13 @@ class DevissonByZerro:
         try:
             return param1 / param2
         except ZeroDivisionError:
-            return f'На ноль делить нельзя!!!'
+            return f'DevizionByZerro!!!'
 
-user_input_1 = float(input("Input digit 1: "))
-user_input_2 = float(input("Input digit 2: "))
+try:
+    user_input_1 = float(input("Input digit 1: "))
+    user_input_2 = float(input("Input digit 2: "))
+except ValueError:
+    print("Type a digit!!!")
 
 print(DevissonByZerro._devidebyzerro(user_input_1, user_input_2))
 
