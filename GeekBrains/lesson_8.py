@@ -4,28 +4,28 @@
 # преобразовывать их тип к типу «Число». Второй, с декоратором @staticmethod, должен проводить валидацию числа, месяца и
 # года (например, месяц — от 1 до 12). Проверить работу полученной структуры на реальных данных.
 
-import datetime
-
-class Date:
-    def __init__(self, date):
-        self.date = str(date)
-
-    @classmethod
-    def int_date(cls, date):
-        my_date = []
-        my_date = [int(x) for x in date.split() if x!= '-']
-        return my_date
-
-    @staticmethod
-    def validation(day, month, year):
-        try:
-            date_time = datetime.datetime(day, month, year)
-            return f'Valid date'
-        except ValueError:
-            return f'Wrong date!'
-
-print(Date.int_date('20 - 10 - 2022'))
-print(Date.validation(2022,  11,  22))
+# import datetime
+#
+# class Date:
+#     def __init__(self, date):
+#         self.date = str(date)
+#
+#     @classmethod
+#     def int_date(cls, date):
+#         my_date = []
+#         my_date = [int(x) for x in date.split() if x!= '-']
+#         return my_date
+#
+#     @staticmethod
+#     def validation(day, month, year):
+#         try:
+#             date_time = datetime.datetime(day, month, year)
+#             return f'Valid date'
+#         except ValueError:
+#             return f'Wrong date!'
+#
+# print(Date.int_date('20 - 10 - 2022'))
+# print(Date.validation(2022,  11,  22))
 
 ########################################################################################################################
 
@@ -33,22 +33,22 @@ print(Date.validation(2022,  11,  22))
 # вводимых пользователем. При вводе пользователем нуля в качестве делителя программа должна корректно обработать эту
 # ситуацию и не завершиться с ошибкой.
 
-class DevissonByZerro:
-
-    @staticmethod
-    def _devidebyzerro(digit_1, digit_2):
-        try:
-            return digit_1 / digit_2
-        except ZeroDivisionError:
-            return f'DevizionByZerro!!!'
-
-try:
-    user_input_1 = float(input("Input digit 1: "))
-    user_input_2 = float(input("Input digit 2: "))
-except ValueError:
-    print("Type a digit!!!")
-
-print(DevissonByZerro._devidebyzerro(user_input_1, user_input_2))
+# class DevissonByZerro:
+#
+#     @staticmethod
+#     def _devidebyzerro(digit_1, digit_2):
+#         try:
+#             return digit_1 / digit_2
+#         except ZeroDivisionError:
+#             return f'DevizionByZerro!!!'
+#
+# try:
+#     user_input_1 = float(input("Input digit 1: "))
+#     user_input_2 = float(input("Input digit 2: "))
+# except ValueError:
+#     print("Type a digit!!!")
+#
+# print(DevissonByZerro._devidebyzerro(user_input_1, user_input_2))
 
 ########################################################################################################################
 # 3. Создайте собственный класс-исключение, который должен проверять содержимое списка на наличие только чисел.
@@ -62,5 +62,55 @@ print(DevissonByZerro._devidebyzerro(user_input_1, user_input_2))
 # Класс-исключение должен не позволить пользователю ввести текст (не число) и отобразить соответствующее сообщение.
 # При этом работа скрипта не должна завершаться.
 #
-class Exception:
-    pass
+# 
+# class my_Exception(Exception):
+# 
+#     def __init__(self, digit):
+#         self.digit = digit
+# 
+# 
+# 
+# my_list = []
+# while True:
+# 
+#     try:
+#         user_input = int(input("Type a digit: "))
+#         if "stop" in user_input:
+# 
+#             break
+#         else:
+#             my_list.append(user_input)
+#     except my_Exception:
+#         pass
+to_buy = ['молоко', 'кефир', 'хлеб', 'шоколадка']
+
+for el in len(to_buy):
+    print(el)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -12,6 +12,7 @@
 # первым элементом первой строки второй матрицы и т.д.
 
 class Matrix:
+
     def __init__(self, matrix):
         self.matrix = matrix
 
@@ -21,6 +22,7 @@ class Matrix:
                 print(f'{i}', end="\t")
             print()
         return
+
 
     def __add__(self, other):
         for i in range(len(self.matrix)):
