@@ -39,9 +39,9 @@ print(sum_1)
 # The PC "<имя ПК>" receive message from service "<имя сервиса>" what says "<сообщение>" because "<причина ошибки>"
 # at <дата, время>
 log_message = 'May 24 14:03:01 ideapad colord[844]: failed to get session [pid 8279]: Нет доступных данных'
-PC_name = log_message[16:23]
-service_name = log_message[24:35]
-message = log_message[36:-22]
-reason = log_message[-20:]
-date = log_message[:16]
-print(f'The PC {PC_name} receive message from service {service_name}: what says {message}: because \"{reason}\" at {date}')
+# PC_name = log_message[16:23]
+# service_name = log_message[24:35]
+# message = log_message[36:-22]
+# reason = log_message[-20:]
+# date = log_message[:16]
+print(f'The PC {log_message[16:23]} receive message from service {log_message[24:35]}: what says {log_message[36:-22]}: because \"{log_message[-20:]}\" at {log_message[:16]}')
