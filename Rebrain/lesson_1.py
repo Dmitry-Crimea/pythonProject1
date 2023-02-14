@@ -8,7 +8,7 @@ print(test_str[:15])
 ###################################################################
 #1.2. Выделите и выведите на экран название сервиса (systemd[1]), записавшего лог.
 test_str = 'May 24 12:48:31 ideapad systemd[1]: logrotate.service: Succeeded.'
-print(test_str[24:35])
+print(test_str[24:31])
 
 ###################################################################
 #1.3. Замените название ПК (ideapad) на PC-12092, выведите полученную строку на экран.
@@ -23,8 +23,7 @@ print(test_str.find('failed'))
 ###################################################################
 #1.5. Посчитайте количество букв 'S' в строке вне зависимости от регистра (и прописных, и заглавных).
 test_str = 'May 24 12:48:31 ideapad systemd[1]: logrotate.service: Succeeded.'
-lower_str = test_str.lower()
-print(lower_str.count('s'))
+print(test_str.lower().count('s'))
 
 ###################################################################
 #1.6. Выделите из строки значения часов, минут и секунд, суммируйте эти 3 числа и выведите полученное число на экран.
@@ -39,9 +38,10 @@ print(sum_1)
 #2.1 Нужно сформировать и вывести сообщение в таком формате:
 # The PC "<имя ПК>" receive message from service "<имя сервиса>" what says "<сообщение>" because "<причина ошибки>"
 # at <дата, время>
-PC_name = "ideapad"
-service_name = "colord[844]:"
-message ="failed to get session [pid 8279]:"
-reason = '"Нет доступных данных"'
-date = "May 24 14:03:01"
-print(f'The PC {PC_name} receive message from service {service_name} what says {message} because {reason} at {date}')
+log_message = 'May 24 14:03:01 ideapad colord[844]: failed to get session [pid 8279]: Нет доступных данных'
+PC_name = log_message[16:23]
+service_name = log_message[24:35]
+message = log_message[36:-22]
+reason = log_message[-20:]
+date = log_message[:16]
+print(f'The PC {PC_name} receive message from service {service_name}: what says {message}: because \"{reason}\" at {date}')
