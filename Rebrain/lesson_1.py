@@ -8,7 +8,7 @@ print(test_str[:15])
 ###################################################################
 #1.2. Выделите и выведите на экран название сервиса (systemd[1]), записавшего лог.
 test_str = 'May 24 12:48:31 ideapad systemd[1]: logrotate.service: Succeeded.'
-print(test_str[24:31])
+print(test_str[24:34])
 
 ###################################################################
 #1.3. Замените название ПК (ideapad) на PC-12092, выведите полученную строку на экран.
@@ -39,9 +39,4 @@ print(sum_1)
 # The PC "<имя ПК>" receive message from service "<имя сервиса>" what says "<сообщение>" because "<причина ошибки>"
 # at <дата, время>
 log_message = 'May 24 14:03:01 ideapad colord[844]: failed to get session [pid 8279]: Нет доступных данных'
-# PC_name = log_message[16:23]
-# service_name = log_message[24:35]
-# message = log_message[36:-22]
-# reason = log_message[-20:]
-# date = log_message[:16]
-print(f'The PC {log_message[16:23]} receive message from service {log_message[24:35]}: what says {log_message[36:-22]}: because \"{log_message[-20:]}\" at {log_message[:16]}')
+print(f'The PC {log_message[16:23]} receive message from service {log_message[24:35]} what says {log_message[36:-22]} ecause \"{log_message[-20:]}\" at {log_message[:16]}')
