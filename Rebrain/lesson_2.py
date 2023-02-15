@@ -12,7 +12,9 @@
 # May 24 16:19:52 PC-00233 systemd[1116]: Reached target Sound Card.
 # May 24 19:26:40 PC-00102 rtkit-daemon[1131]: Supervising 5 threads of 2 processes of 1 users.
 
+#1.Скопируйте их к себе и создайте из них список (список строк).
 log_list = (
+
     "May 18 11:59:18 PC-00102 plasmashell[1312]: kf.plasma.core: findInCache with a lastModified timestamp of 0 is deprecated",
     "May 18 13:06:54 ideapad kwin_x11[1273]: Qt Quick Layouts: Detected recursive rearrange. Aborting after two iterations.",
     "May 20 09:16:28 PC0078 systemd[1]: Starting PackageKit Daemon...",
@@ -24,5 +26,15 @@ log_list = (
     "May 23 08:06:14 PC-00233 kernel: [221559.381614] usbcore: registered new interface driver snd-usb-audio",
     "May 24 16:19:52 PC-00233 systemd[1116]: Reached target Sound Card.",
     "May 24 19:26:40 PC-00102 rtkit-daemon[1131]: Supervising 5 threads of 2 processes of 1 users."
+
 )
-print(log_list)
+print(log_list[0])
+
+#2.1.Создайте алгоритм заполнения словаря, подходящий для любой строчки лога. Словарь должен содержать в себе такую информацию:
+#  - 'time': <дата/время>
+#  - 'pc_name': <имя компьютера>
+#  - 'service_name': <имя сервиса>
+#  - 'message': <сообщение лога>
+# Еще раз обращаю ваше внимание на то, что алгоритм заполнения должен быть универсальным для всех данных строк.
+log_str = "May 18 13:06:54 ideapad kwin_x11[1273]: Qt Quick Layouts: Detected recursive rearrange. Aborting after two iterations."
+print(log_str)
