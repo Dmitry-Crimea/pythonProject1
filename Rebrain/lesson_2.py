@@ -28,7 +28,7 @@ log_list = [
     "May 24 19:26:40 PC-00102 rtkit-daemon[1131]: Supervising 5 threads of 2 processes of 1 users."
 
 ]
-print(log_list[:])
+# print(log_list[:])
 
 #2.1.Создайте алгоритм заполнения словаря, подходящий для любой строчки лога. Словарь должен содержать в себе такую информацию:
 #  - 'time': <дата/время>
@@ -36,5 +36,6 @@ print(log_list[:])
 #  - 'service_name': <имя сервиса>
 #  - 'message': <сообщение лога>
 # Еще раз обращаю ваше внимание на то, что алгоритм заполнения должен быть универсальным для всех данных строк.
-# log_str = "May 18 13:06:54 ideapad kwin_x11[1273]: Qt Quick Layouts: Detected recursive rearrange. Aborting after two iterations."
-# print(log_str)
+log_str = input("Введит")
+log_dict = ["May 18 13:06:54 ideapad kwin_x11[1273]: Qt Quick Layouts: Detected recursive rearrange. Aborting after two iterations."]
+print(log_str[0])
