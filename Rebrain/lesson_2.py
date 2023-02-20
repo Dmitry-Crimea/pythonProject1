@@ -63,3 +63,13 @@ user_input = int(input("Введите номер строки: "))
 log_str = log_lst[user_input].split()
 log_dict = {'time':log_str[0:3], 'pc_name':log_str[3:4], 'service_name':log_str[4:5], 'message':log_str[5:]}
 print(' '.join(log_dict['pc_name']) + ' : ' + ' '.join(log_dict['message']))
+
+# 3.1. Скопируйте к себе литерал списка:
+# ['May 26 12:48:18', 'ideapad', 'systemd[1]', 'Finished Message of the Day.']
+# 3.2. Создайте список ключей из пункта 2.1
+# 3.3. Используя функцию zip(), создайте словарь из этих двух списков
+log_key = ['time', 'pc_name', 'service_name', 'message']
+log_str = ['May 26 12:48:18', 'ideapad', 'systemd[1]', 'Finished Message of the Day.']
+log_dict = dict(zip(log_key,log_str))
+print(log_dict)
+
