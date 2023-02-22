@@ -21,10 +21,10 @@ print(log_lst[:])
 #  - 'service_name': <имя сервиса>
 #  - 'message': <сообщение лога>
 # Еще раз обращаю ваше внимание на то, что алгоритм заполнения должен быть универсальным для всех данных строк.
-log_str = "May 18 13:06:54 ideapad kwin_x11[1273]: Qt Quick Layouts: Detected recursive rearrange. Aborting after two iterations."
-log_lst = log_str.split()
-log_dict = {'time':log_lst[0:3], 'pc_name':log_lst[3:4], 'service_name':log_lst[4:5], 'message':log_lst[9:]}
-print(type(log_lst), type(log_dict))
+log_str = ("May 18 13:06:54 ideapad kwin_x11[1273]: Qt Quick Layouts: Detected recursive rearrange. Aborting after two iterations.").split()
+keys = ['time', 'pc_name', 'service_name', 'message']
+values = [' '.join(log_str[:3]), ' '.join(log_str[3:4]), ' '.join(log_str[4:5]), ' '.join(log_str[5:])]
+print(dict(zip(keys, values)))
 
 #2.2. Заполните словарь для одной из строк лога с помощью данного алгоритма, запросив у пользователя номер строки
 # с помощью input(). Выведите на экран информацию из текущего словаря в таком виде:
@@ -46,9 +46,10 @@ log_lst = [
 ]
 user_input = int(input("Введите номер строки: "))
 log_str = log_lst[user_input].split()
-log_dict_1 = {'time':log_str[0:3], 'pc_name':log_str[3:4], 'service_name':log_str[4:5], 'message':log_str[5:]}
-print(' '.join(log_dict['pc_name']) + ' : ' + ' '.join(log_dict['message']))
-
+keys = ['time', 'pc_name', 'service_name', 'message']
+values = [' '.join(log_str[:3]), ' '.join(log_str[3:4]), ' '.join(log_str[4:5]), ' '.join(log_str[5:])]
+log_dict_1 = dict(zip(keys, values))
+print(log_dict_1)
 
 # 3.1. Скопируйте к себе литерал списка:
 # ['May 26 12:48:18', 'ideapad', 'systemd[1]', 'Finished Message of the Day.']
@@ -57,7 +58,7 @@ print(' '.join(log_dict['pc_name']) + ' : ' + ' '.join(log_dict['message']))
 log_key = ['time', 'pc_name', 'service_name', 'message']
 log_str = ['May 26 12:48:18', 'ideapad', 'systemd[1]', 'Finished Message of the Day.']
 log_dict_2 = dict(zip(log_key,log_str))
-print(log_dict)
+print(log_dict_2)
 
 # 4. Создайте список словарей: из словаря, который вы получили в пункте 2 и словаря из пункта 3 (в итоге у вас должен
 # получиться список, состоящий из двух словарей). Выведите полученный список на экран
