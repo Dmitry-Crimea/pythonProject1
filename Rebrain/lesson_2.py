@@ -1,4 +1,3 @@
-
 #1.
 log_lst = [
     "May 18 11:59:18 PC-00102 plasmashell[1312]: kf.plasma.core: findInCache with a lastModified timestamp of 0 is deprecated",
@@ -15,12 +14,12 @@ log_lst = [
 ]
 
 #2.1
-# log_dict = {'time':' '.join(log_str[:3]), 'pc_name':' '.join(log_str[3:4]), 'service_name':' '.join(log_str[4:5]), 'message':' '.join(log_str[5:])}
+log_dict = {'time':' '.join(log_str[:3]), 'pc_name':' '.join(log_str[3:4]), 'service_name':' '.join(log_str[4:5]), 'message':' '.join(log_str[5:])}
 
 #2.2.
 user_input = int(input("Введите номер строки: "))
 log_str = log_lst[user_input].split()
-log_dict = {'time':' '.join(log_str[:3]), 'pc_name':' '.join(log_str[3:4]), 'service_name':' '.join(log_str[4:5-1]), 'message':' '.join(log_str[5:])}
+log_dict = {'time':' '.join(log_str[:3]), 'pc_name':' '.join(log_str[3:4]), 'service_name':' '.join(log_str[4:5 -1]), 'message':' '.join(log_str[5:])}
 print(log_dict['pc_name'] + ':' + log_dict['message'])
 
 
