@@ -13,7 +13,7 @@ free_disk_spcae = hdd_base[user_input]['total'] - hdd_base[user_input]['used']
 free_disk_spcae_percent = int(100 - ((hdd_base[user_input]['used'] * 100) / hdd_base[user_input]['total']))
 if free_disk_spcae < 10737418240 or free_disk_spcae_percent < 5:
     print(f'на накопителе {user_input} критически мало свободного места')
-elif 10737418240 < free_disk_spcae < 32212254720 or free_disk_spcae_percent < 10:
+elif free_disk_spcae < 32212254720 or free_disk_spcae_percent < 10:
     print(f'на накопителе {user_input} мало свободного места')
 else:
     print(f'на накопителе {user_input} достаточно свободного места')

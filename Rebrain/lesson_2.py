@@ -15,12 +15,12 @@ log_lst = [
 ]
 
 #2.1
-log_dict = {'time':' '.join(log_str[:3]), 'pc_name':' '.join(log_str[3:4]), 'service_name':' '.join(log_str[4:5]), 'message':' '.join(log_str[5:])}
+# log_dict = {'time':' '.join(log_str[:3]), 'pc_name':' '.join(log_str[3:4]), 'service_name':' '.join(log_str[4:5]), 'message':' '.join(log_str[5:])}
 
 #2.2.
 user_input = int(input("Введите номер строки: "))
 log_str = log_lst[user_input].split()
-log_dict = {'time':' '.join(log_str[:3]), 'pc_name':' '.join(log_str[3:4]), 'service_name':' '.join(log_str[4:5]), 'message':' '.join(log_str[5:])}
+log_dict = {'time':' '.join(log_str[:3]), 'pc_name':' '.join(log_str[3:4]), 'service_name':' '.join(log_str[4:5-1]), 'message':' '.join(log_str[5:])}
 print(log_dict['pc_name'] + ':' + log_dict['message'])
 
 
@@ -42,5 +42,5 @@ print(log_dict_3)
 # 5.
 set_1 = set(log_dict.values())
 set_2 = set(log_dict_2.values())
-print(set_1 ^ set_2)
+print(set_1 & set_2)
 
