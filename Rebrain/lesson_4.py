@@ -18,4 +18,8 @@ for values in log_lst:
     log_str = values.split()
     log_dict = {'time':' '.join(log_str[:3]), 'pc_name':' '.join(log_str[3:4]), 'service_name':' '.join(log_str[4:5]), 'message':' '.join(log_str[5:])}
     list_dict.append(log_dict)
-print(list_dict['time'])
+
+#3.
+log_key = 'time'
+print([value_dict[log_key] for value_dict in list_dict])
+# print(value for value in list_dict)
