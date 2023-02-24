@@ -18,8 +18,19 @@ for values in log_lst:
     log_str = values.split()
     log_dict = {'time':' '.join(log_str[:3]), 'pc_name':' '.join(log_str[3:4]), 'service_name':' '.join(log_str[4:5]), 'message':' '.join(log_str[5:])}
     list_dict.append(log_dict)
-
 #3.
-log_key = 'time'
-print([value_dict[log_key] for value_dict in list_dict])
-# print(value for value in list_dict)
+print([dict_value['time'] for dict_value in list_dict])
+
+#4.
+new_dict = []
+for values in log_lst:
+    log_str = values.split()
+    new_dict.append({'date':' '.join(log_str[:2]), 'time':''.join(log_str[2:3]), 'pc_name':' '.join(log_str[3:4]), 'service_name':' '.join(log_str[4:5]), 'message':' '.join(log_str[5:])})
+print([dict_value['time'] for dict_value in new_dict])
+
+#5.
+print([dict_value['message'] for dict_value in new_dict if dict_value['pc_name'] == 'PC0078'])
+
+#6,7
+super_new_dict = {key:value for key in range(100, 110) for value in list_dict}
+print(super_new_dict[104])
