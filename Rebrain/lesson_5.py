@@ -12,24 +12,18 @@ log_lst = [
     "May 24 16:19:52 PC-00233 systemd[1116]: Reached target Sound Card.",
     "May 24 19:26:40 PC-00102 rtkit-daemon[1131]: Supervising 5 threads of 2 processes of 1 users."
 ]
+
 #2.
-list_dict = []
-for values in log_lst:
-    log_str = values.split()
-    log_dict = {'time':' '.join(log_str[:3]), 'pc_name':' '.join(log_str[3:4]), 'service_name':' '.join(log_str[4:5]), 'message':' '.join(log_str[5:])}
-    list_dict.append(log_dict)
+with open('file_6.txt', 'w', encoding='cp1251') as file_1:
+    for lst in log_lst:
+        month, day, *other =  lst.split()
+        if int(day) == 20:
+            file_1.write('\n' +lst)
+
 #3.
-print([dict_value['time'] for dict_value in list_dict])
-
-#4.
-for values in log_lst:
-    log_str = values.split()
-    list_dict.append({'date':' '.join(log_str[:2]), 'time':''.join(log_str[2:3]), 'pc_name':' '.join(log_str[3:4]), 'service_name':' '.join(log_str[4:5]), 'message':' '.join(log_str[5:])})
-print([dict_value['time'] for dict_value in list_dict])
-
-#5.
-print([dict_value['message'] for dict_value in list_dict if dict_value['pc_name'] == 'PC0078'])
-
-#6,7
-super_new_dict = {key:value for key in range(100, 110) for value in list_dict}
-print(super_new_dict[104])
+min_time = []
+with open('file_6.txt', 'r', encoding='cp1251') as file_1:
+    for line in file_1.readlines():
+        month, day, time, *other = line.split()
+        min_time.append(time)
+print(min(min_time))
