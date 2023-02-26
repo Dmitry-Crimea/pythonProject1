@@ -22,10 +22,10 @@ for values in log_lst:
 print([dict_value['time'] for dict_value in list_dict])
 
 #4.
-for values in log_lst:
-    log_str = values.split()
-    list_dict.append({'date':' '.join(log_str[:2]), 'time':''.join(log_str[2:3]), 'pc_name':' '.join(log_str[3:4]), 'service_name':' '.join(log_str[4:5]), 'message':' '.join(log_str[5:])})
-print([dict_value['time'] for dict_value in list_dict])
+for dict_str in list_dict:
+    dict_str['date'] = dict_str['time'][:6]
+    dict_str['time'] = dict_str['time'][6:]
+    print(dict_str['time'])
 
 #5.
 print([dict_value['message'] for dict_value in list_dict if dict_value['pc_name'] == 'PC0078'])
