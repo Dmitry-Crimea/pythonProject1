@@ -14,15 +14,15 @@ log_lst = [
 ]
 
 #2.
-with open('file_6.txt', 'w', encoding='cp1251') as file_1:
-    for lst in log_lst:
-        month, day, time, *other = lst.split()
-        if int(day) == 20:
-            file_1.write('\n' +lst)
-#3.
-min_time = []
-with open('file_6.txt', 'r', encoding='cp1251') as file_1:
-    for line in file_1.readlines():
-        month, day, time, *other = line.split()
-        min_time.append(time)
-print(min(min_time))
+def log_print(user_dict = [], *list_str):
+    dict_lst = []
+    for line in list_str:
+        log_str = line.split()
+        log_dict = {'time': ' '.join(log_str[:3]), 'pc_name': ' '.join(log_str[3:4]),
+                'service_name': ' '.join(log_str[4:5]), 'message': ' '.join(log_str[5:])}
+        dict_lst.append(log_dict)
+    final_dict = user_dict.append(dict_lst)
+    print (final_dict)
+
+log_print(log_lst, "May 24 16:19:52 PC-00233 systemd[1116]: Reached target Sound Card.",
+    "May 24 19:26:40 PC-00102 rtkit-daemon[1131]: Supervising 5 threads of 2 processes of 1 users.")
