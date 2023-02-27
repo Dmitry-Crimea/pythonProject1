@@ -22,7 +22,7 @@ def log_print(user_dict = [], *list_str):
                 'service_name': ' '.join(log_str[4:5]), 'message': ' '.join(log_str[5:])}
         dict_lst.append(log_dict)
     final_dict = user_dict.append(dict_lst)
-    print (final_dict)
+    return final_dict
 
-log_print(log_lst, "May 24 16:19:52 PC-00233 systemd[1116]: Reached target Sound Card.",
-    "May 24 19:26:40 PC-00102 rtkit-daemon[1131]: Supervising 5 threads of 2 processes of 1 users.")
+print(log_print(log_lst, "May 24 16:19:52 PC-00233 systemd[1116]: Reached target Sound Card.",
+    "May 24 19:26:40 PC-00102 rtkit-daemon[1131]: Supervising 5 threads of 2 processes of 1 users."))

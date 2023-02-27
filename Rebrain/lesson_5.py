@@ -19,10 +19,13 @@ with open('file_6.txt', 'w', encoding='cp1251') as file_1:
         month, day, time, *other = lst.split()
         if int(day) == 20:
             file_1.write('\n' +lst)
+
 #3.
-min_time = []
 with open('file_6.txt', 'r', encoding='cp1251') as file_1:
     for line in file_1.readlines():
-        month, day, time, *other = line.split()
-        min_time.append(time)
-print(min(min_time))
+        print(line[6:15])
+
+
+
+
+
