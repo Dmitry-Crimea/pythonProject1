@@ -22,8 +22,10 @@ with open('file_6.txt', 'w', encoding='cp1251') as file_1:
 
 #3.
 with open('file_6.txt', 'r', encoding='cp1251') as file_1:
-    for line in file_1.readlines():
-        print(line[6:15])
+    file_1.readlines()
+    file_1.seek(9)
+    print(file_1.read(8))
+    file_1.seek(0)
 
 
 
