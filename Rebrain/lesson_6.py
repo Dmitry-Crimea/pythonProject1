@@ -18,9 +18,9 @@ def log_print(user_dict = [], *list_str):
     dict_lst = []
     for line in list_str:
         log_str = line.split()
-        log_dict = {'time': ' '.join(log_str[:3]), 'pc_name': ' '.join(log_str[3:4]),
+        dict_str = {'time': ' '.join(log_str[:3]), 'pc_name': ' '.join(log_str[3:4]),
                 'service_name': ' '.join(log_str[4:5]), 'message': ' '.join(log_str[5:])}
-        dict_lst.append(log_dict)
+        dict_lst.append(dict.str)
     final_dict = user_dict.append(dict_lst)
     return final_dict
 
