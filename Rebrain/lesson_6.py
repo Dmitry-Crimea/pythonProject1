@@ -20,9 +20,8 @@ def log_print(user_dict = [], *list_str):
         log_str = line.split()
         dict_str = {'time': ' '.join(log_str[:3]), 'pc_name': ' '.join(log_str[3:4]),
                 'service_name': ' '.join(log_str[4:5]), 'message': ' '.join(log_str[5:])}
-        dict_lst.append(dict.str)
-    final_dict = user_dict.append(dict_lst)
-    return final_dict
+        user_dict.append(dict_str)
+    return user_dict
 
-print(log_print(log_lst, "May 24 16:19:52 PC-00233 systemd[1116]: Reached target Sound Card.",
-    "May 24 19:26:40 PC-00102 rtkit-daemon[1131]: Supervising 5 threads of 2 processes of 1 users."))
+dict_log = []
+print(log_print(dict_log, "May 18 11:59:18 PC-00102 plasmashell[1312]: kf.plasma.core: findInCache with a lastModified timestamp of 0 is deprecated", "May 18 13:06:54 ideapad kwin_x11[1273]: Qt Quick Layouts: Detected recursive rearrange. Aborting after two iterations.", "May 20 11:01:12 PC-00102 PackageKit: daemon start"))
