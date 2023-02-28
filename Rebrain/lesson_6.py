@@ -39,13 +39,13 @@ resource_dict = [
 
 def resource_utility(a = []):
     for line in a:
-        free_disk_spcae = a[line]['total'] - a[line]['used']
+        free_disk_spcae = line['total'] - line['used']
         print(free_disk_spcae)
-    # free_disk_spcae_percent = int(100 - ((hdd_base[resource_dict]['used'] * 100) / hdd_base[resource_dict]['total']))
-    # if free_disk_spcae < 10737418240 or free_disk_spcae_percent < 5:
-    #     print(f'на накопителе {user_input} критически мало свободного места')
-    # elif free_disk_spcae < 32212254720 or free_disk_spcae_percent < 10:
-    #     print(f'на накопителе {user_input} мало свободного места')
-    # else:
-    #     print(f'на накопителе {user_input} достаточно свободного места')
+        free_disk_spcae_percent = int(100 - ((line['used'] * 100) / line'total']))
+        if free_disk_spcae < 10737418240 or free_disk_spcae_percent < 5:
+            print(f'на накопителе {user_input} критически мало свободного места')
+        elif free_disk_spcae < 32212254720 or free_disk_spcae_percent < 10:
+            print(f'на накопителе {user_input} мало свободного места')
+        else:
+            print(f'на накопителе {user_input} достаточно свободного места')
 resource_utility(resource_dict)
