@@ -27,7 +27,7 @@
 # log_print(dict_log, "May 18 11:59:18 PC-00102 plasmashell[1312]: kf.plasma.core: findInCache with a lastModified timestamp of 0 is deprecated", "May 18 13:06:54 ideapad kwin_x11[1273]: Qt Quick Layouts: Detected recursive rearrange. Aborting after two iterations.", "May 20 11:01:12 PC-00102 PackageKit: daemon start")
 
 #3-4*.
-resource_dict: [
+resource_dict = [
     {'id': 382, 'total': 999641890816, 'used': 228013805568},
     {'id': 385, 'total': 61686008768, 'used': 52522710872},
     {'id': 398, 'total': 149023482194, 'used': 83612310700},
@@ -37,12 +37,10 @@ resource_dict: [
     {'id': 430, 'total': 49705846287, 'used': 9522710872},
 ]
 
-def resource_utility(a):
+def resource_utility(a = []):
     for line in a:
-        print(line)
-
-resource_utility(resource_dict)
-    # free_disk_spcae = hdd_base[resource_dict]['total'] - hdd_base[resource_dict]['used']
+        free_disk_spcae = a[line]['total'] - a[line]['used']
+        print(free_disk_spcae)
     # free_disk_spcae_percent = int(100 - ((hdd_base[resource_dict]['used'] * 100) / hdd_base[resource_dict]['total']))
     # if free_disk_spcae < 10737418240 or free_disk_spcae_percent < 5:
     #     print(f'на накопителе {user_input} критически мало свободного места')
@@ -50,3 +48,4 @@ resource_utility(resource_dict)
     #     print(f'на накопителе {user_input} мало свободного места')
     # else:
     #     print(f'на накопителе {user_input} достаточно свободного места')
+resource_utility(resource_dict)
