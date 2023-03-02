@@ -37,15 +37,18 @@ resource_dict = [
     {'id': 430, 'total': 49705846287, 'used': 9522710872},
 ]
 
-def resource_utility(a = []):
-    for line in a:
+def resource_utility(dict = []):
+    list_1 = []
+    utility_dict = {}
+    for line in dict:
         free_disk_spcae = line['total'] - line['used']
         print(free_disk_spcae)
-        free_disk_spcae_percent = int(100 - ((line['used'] * 100) / line'total']))
+        free_disk_spcae_percent = int(100 - ((line['used'] * 100) / line['total']))
         if free_disk_spcae < 10737418240 or free_disk_spcae_percent < 5:
-            print(f'на накопителе {user_input} критически мало свободного места')
+            utility_dict = ({'memory_ok':list_1.append(line['id'])})
         elif free_disk_spcae < 32212254720 or free_disk_spcae_percent < 10:
-            print(f'на накопителе {user_input} мало свободного места')
+            utility_dict.update({'memory_not_enough':list_1.append(line['id'])})
         else:
-            print(f'на накопителе {user_input} достаточно свободного места')
+            utility_dict.update({'memory_critical':list_1.append(line['id'])})
+    return utility_dict
 resource_utility(resource_dict)
