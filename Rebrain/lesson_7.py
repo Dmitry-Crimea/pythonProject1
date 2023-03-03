@@ -24,7 +24,9 @@ def log_print(user_dict = [], *list_str):
     print(user_dict)
 
 dict_log = []
-log_print(dict_log, "May 18 11:59:18 PC-00102 plasmashell[1312]: kf.plasma.core: findInCache with a lastModified timestamp of 0 is deprecated", "May 18 13:06:54 ideapad kwin_x11[1273]: Qt Quick Layouts: Detected recursive rearrange. Aborting after two iterations.", "May 20 11:01:12 PC-00102 PackageKit: daemon start")
+log_print(dict_log, "May 18 11:59:18 PC-00102 plasmashell[1312]: kf.plasma.core: findInCache with a lastModified timestamp of 0 is deprecated",
+          "May 18 13:06:54 ideapad kwin_x11[1273]: Qt Quick Layouts: Detected recursive rearrange. Aborting after two iterations.",
+          "May 20 11:01:12 PC-00102 PackageKit: daemon start")
 
 #3-4*.
 resource_dict = [
@@ -51,6 +53,6 @@ def resource_utility(dict = []):
             list_2.append(line['id'])
         else:
             list_3.append(line['id'])
-    utility_dict = {'memory_critical':list_1, 'memory_not_enough': list_2, 'memory_ok':list_3 }
+    utility_dict = {'memory_critical': list_1, 'memory_not_enough': list_2, 'memory_ok': list_3 }
     return utility_dict
 print(resource_utility(resource_dict))
