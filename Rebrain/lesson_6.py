@@ -14,14 +14,15 @@ log_lst = [
 ]
 
 # #2*.
-def log_print(user_dict = [], *list_str):
+def log_print(user_data = [], *list_str):
     dict_lst = []
     for line in list_str:
-        log_str = line.split()
+        str_1 = line.split(': ')
+        log_str = str_1[0].split()
         dict_str = {'time': ' '.join(log_str[:3]), 'pc_name': ' '.join(log_str[3:4]),
-                'service_name': ' '.join(log_str[4:5]), 'message': ' '.join(log_str[5:])}
-        user_dict.append(dict_str)
-    print(user_dict)
+                'service_name': ' '.join(log_str[4:5]), 'message': ' '.join(str_1[0:])}
+        user_data.append(dict_str)
+    print(user_data)
 
 dict_log = []
 log_print(dict_log, "May 18 11:59:18 PC-00102 plasmashell[1312]: kf.plasma.core: findInCache with a lastModified timestamp of 0 is deprecated", "May 18 13:06:54 ideapad kwin_x11[1273]: Qt Quick Layouts: Detected recursive rearrange. Aborting after two iterations.", "May 20 11:01:12 PC-00102 PackageKit: daemon start")
@@ -41,7 +42,6 @@ def resource_utility(dict = []):
     list_1 = []
     list_2 = []
     list_3 = []
-    utility_dict = {}
     for line in dict:
         free_disk_spcae = line['total'] - line['used']
         free_disk_spcae_percent = int(100 - ((line['used'] * 100) / line['total']))
