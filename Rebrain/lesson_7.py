@@ -8,12 +8,12 @@ resource_dict = [
     {'id': 430, 'total': 49705846287, 'used': 9522710872},
 ]
 
-def disk_util():
-    for line in dict:
+def disk_util(user_data):
+    for line in user_data:
         free_disk_spcae = line['total'] - line['used']
         free_disk_spcae_percent = int(100 - ((line['used'] * 100) / line['total']))
         if free_disk_spcae < 10737418240 or free_disk_spcae_percent < 5:
-            yeld list_1.append(line['id'])
+            yeld list_1.append(line['id']) # {'id': <id устройства>, 'memory_status': <статус памяти>}
         elif free_disk_spcae < 32212254720 or free_disk_spcae_percent < 10:
             list_2.append(line['id'])
         else:
