@@ -22,5 +22,14 @@ def disk_util(user_data):
             user_data = {'id': line['id'], 'memory_status': 'memory_ok'}
             yield user_data
 
-print(next(disk_util(resource_dict)))
-print(next(disk_util(resource_dict)))
+status_list = []
+for line in disk_util(resource_dict):
+    status_list.append(line)
+
+list_3 = []
+for a in status_list:
+    for b in resource_dict:
+        if a['id'] == b['id']:
+            b.update(a)
+            list_3.append(b)
+print(list_3)
