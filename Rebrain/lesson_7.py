@@ -21,3 +21,6 @@ def disk_util(user_data):
         else:
             user_data = {'id': line['id'], 'memory_status': 'memory_ok'}
             yield user_data
+
+print(next(disk_util(resource_dict)))
+print(next(disk_util(resource_dict)))
