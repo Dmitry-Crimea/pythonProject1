@@ -49,5 +49,5 @@ log_lst = [
 
    ]
 
-print(list(map(lambda x: x.split()[:3],
-               sorted(log_lst, key=lambda el: int(el.split()[2])))))
+print('\n'.join(map(lambda x: x.split()[3],
+               sorted(log_lst, key=lambda el: el.split()[2]))))
