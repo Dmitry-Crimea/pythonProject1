@@ -16,8 +16,8 @@ def disk_util(user_data):
             user_data = {'id': line['id'], 'memory_status': 'memory_critical'}
             yield user_data
         elif free_disk_spcae < 32212254720 or free_disk_spcae_percent < 10:
-            user_data = {'id': line['id'], 'memory_status': 'memory_critical'}
+            user_data = {'id': line['id'], 'memory_status': 'memory_not_enough'}
             yield user_data
         else:
-            user_data = {'id': line['id'], 'memory_status': 'memory_critical'}
+            user_data = {'id': line['id'], 'memory_status': 'memory_ok'}
             yield user_data
