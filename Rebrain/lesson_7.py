@@ -26,10 +26,10 @@ status_list = []
 for line in disk_util(resource_dict):
     status_list.append(line)
 
-list_3 = []
+final_list = []
 for a in status_list:
     for b in resource_dict:
         if a['id'] == b['id']:
             b.update(a)
-            list_3.append(b)
-print(list_3)
+            final_list.append(b)
+print(final_list)
