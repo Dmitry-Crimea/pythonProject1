@@ -59,6 +59,6 @@ log_lst = [
 # Вариант 3 - не смогу сделать с функцией filter(), если можно покажите как.
 
 
-new_list2 = [line for line in log_lst for el in line.split(': ') for i in el.split() if i == 'kernel']
+new_list2 = [el for line in log_lst for el in line.split(': ') for i in el.split() if i == 'kernel']
 
 print(new_list2)
