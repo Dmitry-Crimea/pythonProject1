@@ -48,8 +48,8 @@ log_lst = [
     "May 24 16:19:52 PC-00233 systemd[1116]: Reached target Sound Card.",
 
    ]
-print('\n'.join(map(lambda x: x.split()[3],
-               sorted(log_lst, key=lambda el: el.split()[2]))))
+# print('\n'.join(map(lambda x: x.split()[3],
+#                sorted(log_lst, key=lambda el: el.split()[2]))))
 
 # Вариант 1 - разбиваем на строки, строки на списки, сравниваем лирал полученных списков с значением
 # new_list = [line for line in log_lst for pc_name in line.split() if pc_name == 'PC-00102']
@@ -58,5 +58,7 @@ print('\n'.join(map(lambda x: x.split()[3],
 # new_list = [line for line in log_lst if line[16:24] == 'PC-00102']
 # Вариант 3 - не смогу сделать с функцией filter(), если можно покажите как.
 
-# new_list2 = [line for line in log_lst if line[16:24] == 'kernel']
-# print(new_list2)
+
+new_list2 = [line for line in log_lst for el in line.split(': ') for i in el.split() if i == 'kernel']
+
+print(new_list2)
