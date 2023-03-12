@@ -48,6 +48,8 @@ log_lst = [
     "May 24 16:19:52 PC-00233 systemd[1116]: Reached target Sound Card.",
 
    ]
+#
+# print('\n'.join(map(lambda x: x.split()[3],
+#                sorted(log_lst, key=lambda el: el.split()[2]))))
 
-print('\n'.join(map(lambda x: x.split()[3],
-               sorted(log_lst, key=lambda el: el.split()[2]))))
+print(list(filter(lambda new_list: new_list == 'PC-00102', log_lst)))
