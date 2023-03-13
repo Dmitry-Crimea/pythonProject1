@@ -1,38 +1,38 @@
-# resource_dict = [
-#     {'id': 382, 'total': 999641890816, 'used': 228013805568},
-#     {'id': 385, 'total': 61686008768, 'used': 52522710872},
-#     {'id': 398, 'total': 149023482194, 'used': 83612310700},
-#     {'id': 400, 'total': 498830397039, 'used': 459995976927},
-#     {'id': 401, 'total': 93386008768, 'used': 65371350065},
-#     {'id': 402, 'total': 988242468378, 'used': 892424683789},
-#     {'id': 430, 'total': 49705846287, 'used': 9522710872},
-# ]
-#
-# def disk_util(user_data):
-#     for line in user_data:
-#         free_disk_spcae = line['total'] - line['used']
-#         free_disk_spcae_percent = int(100 - ((line['used'] * 100) / line['total']))
-#         if free_disk_spcae < 10737418240 or free_disk_spcae_percent < 5:
-#             user_data = {'id': line['id'], 'memory_status': 'memory_critical'}
-#             yield user_data
-#         elif free_disk_spcae < 32212254720 or free_disk_spcae_percent < 10:
-#             user_data = {'id': line['id'], 'memory_status': 'memory_not_enough'}
-#             yield user_data
-#         else:
-#             user_data = {'id': line['id'], 'memory_status': 'memory_ok'}
-#             yield user_data
-#
-# status_list = []
-# for line in disk_util(resource_dict):
-#     status_list.append(line)
-#
-# final_list = []
-# for a in status_list:
-#     for b in resource_dict:
-#         if a['id'] == b['id']:
-#             b.update(a)
-#             final_list.append(b)
-# print(final_list)
+resource_dict = [
+    {'id': 382, 'total': 999641890816, 'used': 228013805568},
+    {'id': 385, 'total': 61686008768, 'used': 52522710872},
+    {'id': 398, 'total': 149023482194, 'used': 83612310700},
+    {'id': 400, 'total': 498830397039, 'used': 459995976927},
+    {'id': 401, 'total': 93386008768, 'used': 65371350065},
+    {'id': 402, 'total': 988242468378, 'used': 892424683789},
+    {'id': 430, 'total': 49705846287, 'used': 9522710872},
+]
+
+def disk_util(user_data):
+    for line in user_data:
+        free_disk_spcae = line['total'] - line['used']
+        free_disk_spcae_percent = int(100 - ((line['used'] * 100) / line['total']))
+        if free_disk_spcae < 10737418240 or free_disk_spcae_percent < 5:
+            user_data = {'id': line['id'], 'memory_status': 'memory_critical'}
+            yield user_data
+        elif free_disk_spcae < 32212254720 or free_disk_spcae_percent < 10:
+            user_data = {'id': line['id'], 'memory_status': 'memory_not_enough'}
+            yield user_data
+        else:
+            user_data = {'id': line['id'], 'memory_status': 'memory_ok'}
+            yield user_data
+
+status_list = []
+for line in disk_util(resource_dict):
+    status_list.append(line)
+
+final_list = []
+for a in status_list:
+    for b in resource_dict:
+        if a['id'] == b['id']:
+            b.update(a)
+            final_list.append(b)
+print(final_list)
 
 log_lst = [
     "May 24 19:26:40 PC-00102 rtkit-daemon[1131]: Supervising 5 threads of 2 processes of 1 users.",
@@ -48,16 +48,17 @@ log_lst = [
     "May 24 16:19:52 PC-00233 systemd[1116]: Reached target Sound Card.",
 
    ]
-# print('\n'.join(map(lambda x: x.split()[3],
-#                sorted(log_lst, key=lambda el: el.split()[2]))))
+
+print('\n'.join(map(lambda x: x.split()[3],
+               sorted(log_lst, key=lambda el: el.split()[2]))))
 
 # Вариант 1 - разбиваем на строки, строки на списки, сравниваем лирал полученных списков с значением
-# new_list = [line for line in log_lst for pc_name in line.split() if pc_name == 'PC-00102']
-# Вариант 2 - делим на строки, затем срез строки сравниваем с определённым значением не применим. так как будет
+new_list = [line for line in log_lst for pc_name in line.split() if pc_name == 'PC-00102']
+# Вариант 2 - делим на строки, затем срез строки сравниваем с определённым значением. Не применим. так как будет
 # работать только для двухзначных чисел мая
-# new_list = [line for line in log_lst if line[16:24] == 'PC-00102']
+new_list = [line for line in log_lst if line[16:24] == 'PC-00102']
 # Вариант 3 - не могу сделать с функцией filter(), если можно покажите как.
 
-new_list2 = [el for line in log_lst for el in line.split(': ') for i in el.split() if i == 'kernel']
-
+# Здесь, если можно, подскажите, затрудняюсь выполнить задание.
+new_list2 = [line.split(': ')[1:] for line in log_lst  if line.split()[4] == 'kernel:']
 print(new_list2)
