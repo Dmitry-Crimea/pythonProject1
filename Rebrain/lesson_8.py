@@ -16,6 +16,6 @@ memory = psutil.virtual_memory()
 test_dict = {'user_name': user_cred, 'memory_total': memory[0], 'memory_used': memory[3], 'memory_percent': memory[2]}
 
 #############################
-from lib_info import lib_info
+import lib_info
 
-print(test_dict)
+print(lib_info.test_dict)
