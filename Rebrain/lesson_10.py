@@ -1,14 +1,13 @@
-class User:
-    name = 'Иван'
+class PCMemory:
 
-    def set_name(self, name):
-        self.name = name
+    def __init__(self, pc_id, user_name, memory_total, memory_used, memory_percent ):
+        self.pc_id = pc_id
+        self.user_name = user_name
+        self.memory_total = memory_total
+        self.memory_used = memory_used
+        self.memory_percent = memory_percent
 
-    def get_name(self):
-        return self.name
+    def is_enough_memory(self):
+        if < 10 or <
 
-
-a = User()
-a.set_name('Виктория')
-
-print(a.name)
+print()
