@@ -8,6 +8,6 @@ class PCMemory:
         self.memory_percent = memory_percent
 
     def is_enough_memory(self):
-        if < 10 or <
+        if < 10 or <.
 
 print()
