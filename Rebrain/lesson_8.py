@@ -19,3 +19,7 @@ test_dict = {'user_name': user_cred, 'memory_total': memory[0], 'memory_used': m
 import lib_info
 
 print(lib_info.test_dict)
+
+
+pip3 freeze > requirements.txt
+

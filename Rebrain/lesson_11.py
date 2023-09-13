@@ -31,3 +31,5 @@ pc_info = PCMemory(os.getlogin(), os.getlogin(), psutil.virtual_memory().total,
 
 print(pc_info.show_used_percent())
 print(pc_info.is_enough_memory())
+
+psutil.

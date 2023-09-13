@@ -1,0 +1,9 @@
+dependencies-ifns-commons,ssh://git@bitbucket.region.vtb.ru:7999/ifns/ifns-commons.git,refs/heads/develop,01,build_always_false
+microservices-ifns-dataservice,ssh://git@bitbucket.region.vtb.ru:7999/ifns/ifns-dataservice.git,refs/heads/develop,01,build_always_false
+dependencies-ifns-dataservice-api,ssh://git@bitbucket.region.vtb.ru:7999/ifns/ifns-dataservice-api.git,refs/heads/develop,01,build_always_false
+microservices-ifns-fnsadapter,ssh://git@bitbucket.region.vtb.ru:7999/ifns/ifns-fnsadapter.git,refs/heads/develop,01,build_always_false
+dependencies-ifns-fnsadapter-api,ssh://git@bitbucket.region.vtb.ru:7999/ifns/ifns-fnsadapter-api.git,refs/heads/develop,01,build_always_false
+microservices-ifns-manager,ssh://git@bitbucket.region.vtb.ru:7999/ifns/ifns-manager.git,refs/heads/develop,01,build_always_false
+dependencies-ifns-manager-api,ssh://git@bitbucket.region.vtb.ru:7999/ifns/ifns-manager-api.git,refs/heads/develop,01,build_always_false
+microservices-ifns-ui,ssh://git@bitbucket.region.vtb.ru:7999/ifns/ifns-ui.git,refs/heads/develop,01,build_always_false
+dependencies-helm-pre-post,ssh://git@bitbucket.region.vtb.ru:7999/ifns/helm-pre-post.git,refs/heads/master,01,build_always_false
