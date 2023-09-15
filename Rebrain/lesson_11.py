@@ -26,10 +26,38 @@ class PCMemory:
             return False
 
 
-pc_info = PCMemory(os.getlogin(), os.getlogin(), psutil.virtual_memory().total,
-                   psutil.virtual_memory().used, psutil.virtual_memory().percent)
+class PCAdvanced(PCMemory):
+    def __init__(self, pc_id, user_name, memory_total, memory_used,
+                 memory_percent=None):
+        super().__init__(pc_id, user_name, memory_total, memory_used, memory_percent)
 
-print(pc_info.show_used_percent())
-print(pc_info.is_enough_memory())
+        load_avg = psutil.getloadavg()
+        self.ld_avg_1m = load_avg[0]
+        self.ld_avg_15m = load_avg[2]
 
-psutil.
+    def show_load_average(self):
+        return f'PC with id {self.pc_id} has load average (1m): {self.ld_avg_1m}, load average (15m): {self.ld_avg_15m}'
+
+    def is_overloaded(self):
+        if self.ld_avg_1m is not None and self.ld_avg_15m is not None:
+            return self.ld_avg_1m >= 3 * self.ld_avg_15m
+        else:
+            return False
+
+    def __call__(self, argument='memory'):
+        if argument == 'memory':
+            return self.is_enough_memory()
+        elif argument == 'load':
+            return self.is_overloaded()
+        else:
+            return None
+
+
+pc_advanced_info = PCAdvanced(os.getlogin(), os.getlogin(), psutil.virtual_memory().total,
+                              psutil.virtual_memory().used, psutil.virtual_memory().percent)
+
+load_memory = pc_advanced_info()
+
+print(pc_advanced_info.is_overloaded())  # 1
+
+print(f' Состояние памяти {load_memory}')  # 2
