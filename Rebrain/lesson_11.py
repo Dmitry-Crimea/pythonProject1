@@ -27,13 +27,11 @@ class PCMemory:
 
 
 class PCAdvanced(PCMemory):
-    def __init__(self, pc_id, user_name, memory_total, memory_used,
-                 memory_percent=None):
+    def __init__(self, pc_id, user_name, memory_total, memory_used, ld_avg_1m,
+                 ld_avg_15m, memory_percent=None, ):
         super().__init__(pc_id, user_name, memory_total, memory_used, memory_percent)
-
-        load_avg = psutil.getloadavg()
-        self.ld_avg_1m = load_avg[0]
-        self.ld_avg_15m = load_avg[2]
+        self.ld_avg_1m = ld_avg_1m
+        self.ld_avg_15m = ld_avg_15m
 
     def show_load_average(self):
         return f'PC with id {self.pc_id} has load average (1m): {self.ld_avg_1m}, load average (15m): {self.ld_avg_15m}'
@@ -54,7 +52,7 @@ class PCAdvanced(PCMemory):
 
 
 pc_advanced_info = PCAdvanced(os.getlogin(), os.getlogin(), psutil.virtual_memory().total,
-                              psutil.virtual_memory().used, psutil.virtual_memory().percent)
+                              psutil.virtual_memory().used, psutil.getloadavg()[0], psutil.getloadavg()[2], psutil.virtual_memory().percent)
 
 load_memory = pc_advanced_info()
 
